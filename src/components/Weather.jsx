@@ -2,7 +2,7 @@ import React, { useContext } from 'react';
 import WeatherItem from './WeatherItem';
 import LocationContext from './context/locationContext';
 
-export default function Weather() {
+export default function Weather(props) {
   const context = useContext(LocationContext);
   const { weathers } = context;
 

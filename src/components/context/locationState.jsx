@@ -4,7 +4,7 @@ import { useState } from "react";
 const locationState = (props) => {
   
   const [ weathers, setWeathers ] = useState([{}]);
-  const [ locations, setLocations ] = useState([{lat: 21, lon: 91}]);
+  const [ locations, setLocations ] = useState([]);
   
   // const getWeather = async (lat,lon) => {
   //   const fetchedData = await fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=80b9d8566767694d04a8f98456457361`);
@@ -31,17 +31,18 @@ const locationState = (props) => {
 
     // This Code works, the put the functionality of getWeather inside a single function.
     for(let index = 0; index < locations.length; index++) {
+      const {country, state, name} = locations[index];
       const fetchedData = await fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${locations[index].lat}&lon=${locations[index].lon}&appid=80b9d8566767694d04a8f98456457361`);
       const data = await fetchedData.json();
-      newWeathers.push({...data.weather[0]});
+      console.log(data);
+      newWeathers.push({...data.weather[0], country, state, name});
     }
-
-    console.log(newWeathers)
+    console.log(newWeathers);
     setWeathers(newWeathers);
   }
 
   return (
-    <LocationContext.Provider value={{ weathers, setWeathers, getWeather, locations, setLocations, weatherSetter }}>
+    <LocationContext.Provider value={{ weathers, setWeathers, locations, setLocations, weatherSetter }}>
       {props.children}
     </LocationContext.Provider>
   );

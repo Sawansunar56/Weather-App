@@ -2,6 +2,7 @@ import React, { useEffect, useState, useContext} from 'react'
 import Search from './Search';
 import Weather from './Weather';
 import LocationContext from './context/locationContext';
+import Navbar from './Navbar';
 
 export default function Home() {
   const context = useContext(LocationContext);
@@ -15,9 +16,12 @@ export default function Home() {
   }, [locations])
 
   return (
-  <div className="container">
-      <Search />
-      <Weather />
-    </div>
+    <>
+    {/* <Navbar /> */}
+    <div className="container">
+        <Search />
+        <Weather  />
+      </div>
+    </>
   )
 }
