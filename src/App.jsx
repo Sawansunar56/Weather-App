@@ -1,13 +1,13 @@
 import './App.css'
-import Home from './components/Home'
-import LocationState from './components/context/locationState'
+import Home from './components/Home.jsx'
+import LocationState from './components/context/locationState.jsx'
 
 function App() {
   
   return (
     <>
     <LocationState>
-      <div style={{height: '90vh'}}>
+      <div className="main">
         <Home />
       </div>
     </LocationState>
