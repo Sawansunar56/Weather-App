@@ -10,7 +10,7 @@ export default function WeatherItem(props) {
         <div className="card-body">
         <div className="d-flex justify-content-between">
           <h5 className="card-title align-self-center">{name}</h5>
-          <img src={`http://openweathermap.org/img/w/${icon}.png`} alt="" />
+          <img src={`https://openweathermap.org/img/w/${icon}.png`} alt="" />
         </div>
           <p className="card-text">{main} - {description}</p>
         </div>

@@ -12,7 +12,7 @@ export default function Search() {
 
   const searchGeoLocation = async (event) => {
     event.preventDefault();
-    const fetchedData = await fetch(`http://api.openweathermap.org/geo/1.0/direct?q=${location}&limit=5&appid=80b9d8566767694d04a8f98456457361`);
+    const fetchedData = await fetch(`https://api.openweathermap.org/geo/1.0/direct?q=${location}&limit=5&appid=80b9d8566767694d04a8f98456457361`);
     const data = await fetchedData.json();
     // console.log(data); 
     setLocations([...data]);
